@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}Contact &amp; Location — {{ store.name }} Kanpur{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="container">
+    <span class="section-label">GET IN TOUCH</span>
+    <h1 class="section-title">Contact Faran Sports</h1>
+    <p class="section-subtitle" style="margin: 0 auto;">
+      Located in Kanpur, UP. Connect with us via WhatsApp for instant pricing, stock checks, and delivery details.
+    </p>
+  </div>
+</header>
+
+<section class="section contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left Column: Info Cards -->
+      <div class="contact-info-cards reveal fade-left">
+        <!-- Card 1: WhatsApp -->
+        <div class="info-card">
+          <div class="info-card-icon" style="background: rgba(37, 211, 102, 0.15); color: #25d366;">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i>
+          </div>
+          <div>
+            <div class="info-card-title">Official WhatsApp Line</div>
+            <div class="info-card-text">
+              <a href="https://wa.me/{{ store.whatsapp }}" target="_blank" rel="noopener noreferrer" style="color: #25d366; font-weight: 700; font-size: 1.1rem;">
+                +91 {{ store.whatsapp_display }}
+              </a>
+              <p style="margin-top: 4px; font-size: 0.82rem; color: var(--text-muted);">
+                Instant replies for product availability, size advice &amp; order tracking.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Location -->
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <div class="info-card-title">Showroom Location</div>
+            <div class="info-card-text">
+              Faran Sports Main Hub<br>
+              <strong>Kanpur, Uttar Pradesh</strong>, India<br>
+              <span style="color: var(--text-muted); font-size: 0.82rem;">Visiting hours: 10:00 AM – 9:00 PM (Daily)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Email & Business Support -->
+        <div class="info-card">
+          <div class="info-card-icon">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <div class="info-card-title">Email Inquiries</div>
+            <div class="info-card-text">
+              <a href="mailto:{{ store.email }}">{{ store.email }}</a><br>
+              <span style="color: var(--text-muted); font-size: 0.82rem;">For institutional tenders &amp; school/academy bulk orders</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Ecosystem Quick Contacts -->
+        <div class="info-card" style="border-color: rgba(200, 255, 0, 0.2);">
+          <div class="info-card-icon">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <div class="info-card-title">Four Verticals Under Faran</div>
+            <div class="info-card-text" style="font-size: 0.84rem; line-height: 1.8;">
+              • <strong>Faran Sports:</strong> Retail sports gear<br>
+              • <strong>Faran Supplement House:</strong> Retail &amp; wholesale nutrition<br>
+              • <strong>Faran Gym House:</strong> Gym setup &amp; training<br>
+              • <strong>AB Strong:</strong> Commercial gym equipment
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: WhatsApp Direct Order Generator Form -->
+      <div class="reveal fade-right">
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; margin-bottom: 8px;">
+            Send WhatsApp Inquiry
+          </h3>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">
+            Fill in your requirement below and click submit to open WhatsApp with a ready-to-send customized message.
+          </p>
+
+          <form id="contactForm" onsubmit="handleContactSubmit(event)" class="contact-form">
+            <div class="form-group">
+              <label for="contactName">Your Full Name *</label>
+              <input type="text" id="contactName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactPhone">Your WhatsApp Number *</label>
+              <input type="tel" id="contactPhone" class="form-input" placeholder="e.g. 9876543210" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contactPillar">Category of Interest *</label>
+              <select id="contactPillar" class="form-input" style="appearance: auto;">
+                <option value="Faran Sports Equipment">Faran Sports — Cricket, Badminton, Football &amp; Gear</option>
+                <option value="Faran Supplement House (Retail)">Faran Supplement House — Retail Purchase</option>
+                <option value="Faran Supplement House (Wholesale)">Faran Supplement House — Wholesale &amp; Bulk Nutrition</option>
+                <option value="Faran Gym House Setup">Faran Gym House — Complete Gym Setup / Consultancy</option>
+                <option value="AB Strong Gym Equipment">AB Strong — Dumbbells, Barbells, Benches &amp; Racks</option>
+                <option value="Other Inquiries">Other / General Sports Consultation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMsg">Message / Specific Items Needed</label>
+              <textarea id="contactMsg" class="form-input" placeholder="Mention item names, quantity, or specific models you need in Kanpur..."></textarea>
+            </div>
+
+            <div style="margin-top: 28px;">
+              <button type="submit" class="btn btn-whatsapp" style="width: 100%; justify-content: center; padding: 14px 24px; font-size: 0.95rem;">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i>
+                <span>Send Message to 8840185575</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('contactName').value.trim();
+  const phone = document.getElementById('contactPhone').value.trim();
+  const pillar = document.getElementById('contactPillar').value;
+  const msg = document.getElementById('contactMsg').value.trim();
+
+  let text = `Hi Faran Sports! 👋\n`;
+  text += `Name: *${name}*\n`;
+  text += `Phone: ${phone}\n`;
+  text += `Vertical/Interest: *${pillar}*\n`;
+  if (msg) {
+    text += `Details: ${msg}\n`;
+  }
+  text += `Location: Kanpur / UP Enquiry`;
+
+  const waUrl = `https://wa.me/{{ store.whatsapp }}?text=${encodeURIComponent(text)}`;
+  window.open(waUrl, '_blank');
+}
+</script>
+{% endblock %}

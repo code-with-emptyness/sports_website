@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found — {{ store.name }}{% endblock %}
+
+{% block content %}
+<section class="section" style="min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: calc(var(--nav-height) + 60px);">
+  <div class="container">
+    <div style="font-family: var(--font-heading); font-size: clamp(5rem, 15vw, 9rem); font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 10px;">
+      404
+    </div>
+    <h1 class="section-title" style="margin-bottom: 16px;">Gear Out of Bounds!</h1>
+    <p class="section-subtitle" style="margin: 0 auto 36px;">
+      The page or product you're looking for might have been relocated or is currently out of stock in our Kanpur showroom.
+    </p>
+
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="{{ url_for('home') }}" class="btn btn-primary">
+        <i class="fa-solid fa-house"></i>
+        <span>Return to Home</span>
+      </a>
+      <a href="{{ url_for('products_page') }}" class="btn btn-outline">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        <span>Explore All Products</span>
+      </a>
+      <a href="https://wa.me/{{ store.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp Store ({{ store.whatsapp_display }})</span>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

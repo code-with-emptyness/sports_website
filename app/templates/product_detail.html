@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} — Faran Sports Kanpur{% endblock %}
+{% block meta_description %}{{ product.description }}{% endblock %}
+
+{% block content %}
+<section class="section product-detail">
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <div class="detail-breadcrumb">
+      <a href="{{ url_for('home') }}">Home</a>
+      <span class="sep">/</span>
+      <a href="{{ url_for('products_page') }}">Products</a>
+      <span class="sep">/</span>
+      <a href="{{ url_for('products_page', category=product.category) }}">{{ product.sport }}</a>
+      <span class="sep">/</span>
+      <span style="color: var(--text-primary);">{{ product.name }}</span>
+    </div>
+
+    <!-- Detail Grid -->
+    <div class="product-detail-grid">
+
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="gallery-main">
+          <img src="{{ url_for('static', filename='images/' ~ product.image_placeholder) }}"
+               alt="{{ product.name }}"
+               onerror="this.src='{{ url_for('static', filename='images/placeholder.svg') }}'">
+        </div>
+        <div class="gallery-thumbs">
+          <div class="gallery-thumb active" data-img="{{ url_for('static', filename='images/' ~ product.image_placeholder) }}">
+            <img src="{{ url_for('static', filename='images/' ~ product.image_placeholder) }}" alt="Thumb 1">
+          </div>
+          <div class="gallery-thumb" data-img="{{ url_for('static', filename='images/' ~ product.category ~ '.svg') }}">
+            <img src="{{ url_for('static', filename='images/' ~ product.category ~ '.svg') }}" alt="Sport Art">
+          </div>
+          <div class="gallery-thumb" data-img="{{ url_for('static', filename='images/placeholder.svg') }}">
+            <img src="{{ url_for('static', filename='images/placeholder.svg') }}" alt="Brand Badge">
+          </div>
+        </div>
+      </div>
+
+      <!-- Information & WhatsApp Purchasing -->
+      <div class="detail-info">
+        <div class="detail-brand">{{ product.brand }} OFFICIAL EQUIPMENT</div>
+        <h1 class="detail-title">{{ product.name }}</h1>
+
+        <div class="detail-pricing">
+          <div class="detail-price">₹{{ "{:,}".format(product.price) }}</div>
+          <div class="detail-mrp">₹{{ "{:,}".format(product.mrp) }}</div>
+          <span class="detail-discount-tag">{{ product.discount }}% SAVINGS</span>
+        </div>
+        <div class="detail-tax-note">Inclusive of all taxes • In Stock at Kanpur Outlet</div>
+
+        <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.8; margin-bottom: 24px;">
+          {{ product.description }}
+        </p>
+
+        <!-- Variant / Size Selector -->
+        <div class="size-selector">
+          <div class="size-label">Select Specification / Size:</div>
+          <div class="size-options">
+            <div class="size-option selected" data-size="Standard / Adult">Standard / Adult</div>
+            <div class="size-option" data-size="Pro Edition">Pro Edition</div>
+            <div class="size-option" data-size="Club Grade">Club Grade</div>
+          </div>
+        </div>
+
+        <!-- WhatsApp Buy Actions -->
+        <div class="detail-actions" style="flex-direction: column; gap: 14px;">
+          <a href="{{ product.whatsapp_msg }}" target="_blank" rel="noopener noreferrer"
+             class="btn btn-whatsapp btn-order-whatsapp-large" style="padding: 16px 32px; font-size: 1.05rem; justify-content: center;">
+            <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i>
+            <span>Instant Order on WhatsApp</span>
+          </a>
+
+          <a href="https://wa.me/{{ store.whatsapp }}?text={{ ('Hi Faran Sports! I need consultation / video call demo for: ' ~ product.name)|urlencode }}"
+             target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content: center;">
+            <i class="fa-solid fa-video"></i>
+            <span>Request Live Video Demo / Store Check</span>
+          </a>
+        </div>
+
+        <!-- Value Badges -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 30px; margin-top: 10px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-sm); text-align: center; font-size: 0.82rem;">
+            <i class="fa-solid fa-shield-halved text-accent" style="font-size: 1.1rem; margin-bottom: 4px; display: block;"></i>
+            100% Genuine
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-sm); text-align: center; font-size: 0.82rem;">
+            <i class="fa-solid fa-truck-fast text-accent" style="font-size: 1.1rem; margin-bottom: 4px; display: block;"></i>
+            Express Delivery
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-sm); text-align: center; font-size: 0.82rem;">
+            <i class="fa-solid fa-store text-accent" style="font-size: 1.1rem; margin-bottom: 4px; display: block;"></i>
+            Kanpur Store Pickup
+          </div>
+        </div>
+
+        <!-- Specifications Table -->
+        <div style="margin-top: 20px;">
+          <h3 style="font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 12px;">Product Specifications</h3>
+          <table class="spec-table">
+            <tbody>
+              <tr>
+                <td>Category</td>
+                <td>{{ product.sport }}</td>
+              </tr>
+              <tr>
+                <td>Brand Partner</td>
+                <td>{{ product.brand.upper() }}</td>
+              </tr>
+              <tr>
+                <td>Authentication</td>
+                <td>Verified Serial / Hologram Available</td>
+              </tr>
+              <tr>
+                <td>Warranty / Guarantee</td>
+                <td>Manufacturer Brand Assurance</td>
+              </tr>
+              <tr>
+                <td>Store Hub</td>
+                <td>Faran Sports Main Showroom, Kanpur, UP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Related Products -->
+    {% if related_products %}
+    <div class="related-products">
+      <div style="margin-bottom: 30px;">
+        <span class="section-label">RECOMMENDED GEAR</span>
+        <h2 class="section-title">Similar Equipment In {{ product.sport }}</h2>
+      </div>
+
+      <div class="products-grid">
+        {% for r in related_products %}
+        <div class="product-card">
+          <div class="product-image">
+            <img src="{{ url_for('static', filename='images/' ~ r.image_placeholder) }}"
+                 alt="{{ r.name }}" loading="lazy"
+                 onerror="this.src='{{ url_for('static', filename='images/placeholder.svg') }}'">
+          </div>
+          <div class="product-info">
+            <div class="product-brand">{{ r.brand }}</div>
+            <h3 class="product-name"><a href="{{ url_for('product_detail', product_id=r.id) }}">{{ r.name }}</a></h3>
+            <div class="product-pricing">
+              <div class="product-price">₹{{ "{:,}".format(r.price) }}</div>
+              <div class="product-mrp">₹{{ "{:,}".format(r.mrp) }}</div>
+            </div>
+            <div class="product-actions">
+              <a href="{{ r.whatsapp_msg }}" target="_blank" rel="noopener noreferrer" class="btn-order-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Buy
+              </a>
+              <a href="{{ url_for('product_detail', product_id=r.id) }}" class="btn-view-product">
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{{ store.name }} — Kanpur's Premier Sports &amp; Fitness Destination{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ store.description }}{% endblock %}">
+
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet (Modern Light Theme) -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- 1. PRELOADER -->
+  <div class="preloader">
+    <div class="preloader-logo">FARAN <span class="highlight text-accent">SPORTS</span></div>
+    <div class="preloader-bar"></div>
+    <div style="font-size: 0.78rem; color: var(--text-muted); letter-spacing: 1.5px; font-weight: 600;">KANPUR, UP</div>
+  </div>
+
+  <!-- 2. NAVIGATION -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="{{ url_for('home') }}" class="nav-logo">
+        <span class="highlight">FARAN</span> SPORTS
+      </a>
+
+      <div class="nav-links">
+        <a href="{{ url_for('home') }}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('products_page') }}" class="{% if request.path.startswith('/product') %}active{% endif %}">All Gear</a>
+        <a href="{{ url_for('home') }}#categories">Categories</a>
+        <a href="{{ url_for('home') }}#ecosystem">Ecosystem</a>
+        <a href="{{ url_for('about') }}" class="{% if request.path == '/about' %}active{% endif %}">About Us</a>
+        <a href="{{ url_for('contact') }}" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="footer-social-link" data-open-search title="Search Products" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I would like to enquire about sports equipment.'|urlencode }}"
+           target="_blank" rel="noopener noreferrer" class="nav-cta" title="Chat on WhatsApp">
+          <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i>
+          <span>Order on WhatsApp</span>
+        </a>
+
+        <div class="hamburger" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Overlay Menu Drawer -->
+  <div class="mobile-menu">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('products_page') }}">Shop All Sports Gear</a>
+    <a href="{{ url_for('home') }}#categories">Browse Categories</a>
+    <a href="{{ url_for('home') }}#ecosystem">Our 4-Pillar Ecosystem</a>
+    <a href="{{ url_for('about') }}">About Faran Group</a>
+    <a href="{{ url_for('contact') }}">Contact &amp; Location</a>
+    <div style="margin-top: 16px;">
+      <a href="https://wa.me/{{ store.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp ({{ store.whatsapp_display }})
+      </a>
+    </div>
+  </div>
+
+  <!-- Search Overlay Modal -->
+  <div class="search-overlay">
+    <button class="search-close" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" placeholder="Search cricket bats, badminton, supplements, dumbbells..." autocomplete="off">
+      </div>
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <!-- 3. MAIN PAGE CONTENT -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- 4. FLOATING WHATSAPP BUTTON -->
+  <div class="whatsapp-float">
+    <span class="whatsapp-tooltip">Chat with us: {{ store.whatsapp_display }}</span>
+    <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I need help choosing sports equipment.'|urlencode }}"
+       target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Contact us on WhatsApp">
+      <i class="fa-brands fa-whatsapp" style="font-size: 28px; color: white;"></i>
+    </a>
+  </div>
+
+  <!-- Back to top button -->
+  <button class="back-to-top" aria-label="Scroll back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- 5. FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand column -->
+        <div>
+          <div class="footer-brand-title">
+            <span class="highlight text-accent">FARAN</span> SPORTS
+          </div>
+          <p class="footer-brand-desc">
+            Kanpur's trusted sports hub for authentic equipment, genuine supplements, and gym machinery with direct WhatsApp checkout.
+          </p>
+          <div style="margin-bottom: 16px; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
+            <div><i class="fa-solid fa-location-dot text-accent" style="width: 18px;"></i> Kanpur, Uttar Pradesh, India</div>
+            <div><i class="fa-brands fa-whatsapp text-accent" style="width: 18px;"></i> +91 {{ store.whatsapp_display }}</div>
+            <div><i class="fa-solid fa-envelope text-accent" style="width: 18px;"></i> {{ store.email }}</div>
+          </div>
+          <div class="footer-socials">
+            <a href="https://wa.me/{{ store.whatsapp }}" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="WhatsApp"><i class="fa-brands fa-whatsapp" style="color: var(--whatsapp);"></i></a>
+            <a href="#" class="footer-social-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="footer-social-link" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <!-- Sport Categories -->
+        <div>
+          <h4 class="footer-heading">Sports Gear</h4>
+          <ul class="footer-links">
+            {% for cat in categories %}
+            <li><a href="{{ url_for('products_page', category=cat.slug) }}">{{ cat.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Ecosystem -->
+        <div>
+          <h4 class="footer-heading">Our Ecosystem</h4>
+          <ul class="footer-links">
+            <li><a href="{{ url_for('about') }}#faran-sports">Faran Sports (Retail)</a></li>
+            <li><a href="{{ url_for('about') }}#faran-supplement-house">Faran Supplement House (Wholesale &amp; Retail)</a></li>
+            <li><a href="{{ url_for('about') }}#faran-gym-house">Faran Gym House</a></li>
+            <li><a href="{{ url_for('products_page', brand='ab-strong') }}">AB Strong Equipment</a></li>
+          </ul>
+        </div>
+
+        <!-- WhatsApp Shopping -->
+        <div>
+          <h4 class="footer-heading">WhatsApp Support</h4>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.5;">
+            Order directly via WhatsApp. Instant stock confirmations, local pickup in Kanpur, and pan-India shipping.
+          </p>
+          <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! Please share your latest sports catalog.'|urlencode }}"
+             target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%; font-size: 0.82rem; padding: 8px 14px;">
+            <i class="fa-brands fa-whatsapp"></i> Chat on 8840185575
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Faran Sports, Kanpur, UP. All Rights Reserved.</div>
+        <div>Engineered for Athletes • Powered by Faran Sports &amp; AB Strong</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/particles.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

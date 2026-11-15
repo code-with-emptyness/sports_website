@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="prg_4" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#0f1013" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="pg_4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="#111216" />
+  <rect width="100%" height="100%" fill="url(#prg_4)" />
+  
+  <!-- Subtle border & inner corner highlight -->
+  <rect x="15" y="15" width="570" height="570" rx="20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" />
+  
+  <!-- Centered Floating Visual -->
+  <circle cx="300" cy="225" r="110" fill="#17181e" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+  <circle cx="300" cy="225" r="95" fill="url(#pg_4)" opacity="0.12" />
+  <text x="300" y="240" font-size="80" text-anchor="middle" dominant-baseline="central">🏸</text>
+  
+  <!-- Brand Tag Badge -->
+  <rect x="170" y="360" width="260" height="28" rx="14" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
+  <text x="300" y="379" font-family="'Outfit', sans-serif" font-weight="700" font-size="11" fill="#00f0ff" letter-spacing="2" text-anchor="middle">YONEX AUTHENTIC</text>
+  
+  <!-- Product Name & Price -->
+  <text x="300" y="435" font-family="'Outfit', sans-serif" font-weight="800" font-size="19" fill="#ffffff" text-anchor="middle">Yonex Astrox 88D Pro Racket</text>
+  <text x="300" y="475" font-family="'Inter', sans-serif" font-size="17" fill="#00f0ff" font-weight="800" text-anchor="middle">₹7,499 <tspan fill="#64748b" font-size="13" font-weight="400" text-decoration="line-through">₹9,990</tspan></text>
+</svg>

@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+
+{% block title %}All Sports Equipment &amp; Gear — {{ store.name }} Kanpur{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <span class="section-label">CATALOG &amp; STORE</span>
+    <h1 class="section-title">All Sports Equipment</h1>
+    <p class="section-subtitle" style="margin: 0 auto;">
+      {% if active_category %}
+        Browsing Category: <strong class="text-accent">{{ active_category.name }}</strong> — {{ active_category.description }}
+      {% elif active_brand %}
+        Browsing Brand: <strong class="text-accent">{{ active_brand.name }}</strong>
+      {% else %}
+        Tournament-grade equipment, supplements, and gym machinery with direct WhatsApp checkout.
+      {% endif %}
+    </p>
+  </div>
+</header>
+
+<section class="section products-page">
+  <div class="container">
+    <div class="products-layout">
+
+      <!-- Sidebar Filters -->
+      <aside class="filter-sidebar">
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <div class="filter-group-title">
+            <span>Sports Category</span>
+          </div>
+          <div class="filter-options">
+            {% for cat in categories %}
+            <label class="filter-check">
+              <input type="checkbox" name="category" value="{{ cat.slug }}"
+                     {% if current_category == cat.slug %}checked{% endif %}>
+              <span class="checkmark">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>{{ cat.name }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Brand Filter -->
+        <div class="filter-group">
+          <div class="filter-group-title">
+            <span>Brands</span>
+          </div>
+          <div class="filter-options">
+            {% for b in brands %}
+            <label class="filter-check">
+              <input type="checkbox" name="brand" value="{{ b.slug }}"
+                     {% if current_brand == b.slug %}checked{% endif %}>
+              <span class="checkmark">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>{{ b.name }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- WhatsApp Direct Help -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; text-align: center; margin-top: 30px;">
+          <i class="fa-brands fa-whatsapp text-accent" style="font-size: 2rem; margin-bottom: 10px; display: inline-block;"></i>
+          <h4 style="font-size: 0.95rem; margin-bottom: 8px;">Can't find a model?</h4>
+          <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 14px;">
+            Send us the model name or photo on WhatsApp and our Kanpur team will source it for you.
+          </p>
+          <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I am looking for a specific sports item.'|urlencode }}"
+             target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%; justify-content: center; font-size: 0.8rem; padding: 10px;">
+            Ask on WhatsApp
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Products Content -->
+      <div>
+        <!-- Toolbar -->
+        <div class="products-toolbar">
+          <div class="results-count">
+            Showing <span>{{ products|length }}</span> sports items
+          </div>
+
+          <div style="display: flex; gap: 14px; align-items: center;">
+            <div class="sort-dropdown">
+              <select aria-label="Sort products" onchange="location = this.value;">
+                <option value="{{ url_for('products_page', category=current_category, brand=current_brand) }}" {% if not current_sort %}selected{% endif %}>Featured</option>
+                <option value="{{ url_for('products_page', category=current_category, brand=current_brand, sort='price_asc') }}" {% if current_sort == 'price_asc' %}selected{% endif %}>Price: Low to High</option>
+                <option value="{{ url_for('products_page', category=current_category, brand=current_brand, sort='price_desc') }}" {% if current_sort == 'price_desc' %}selected{% endif %}>Price: High to Low</option>
+                <option value="{{ url_for('products_page', category=current_category, brand=current_brand, sort='discount') }}" {% if current_sort == 'discount' %}selected{% endif %}>Highest Discount</option>
+              </select>
+            </div>
+
+            <div class="view-toggle">
+              <button class="active" data-view="grid" title="Grid View" aria-label="Grid view"><i class="fa-solid fa-grip"></i></button>
+              <button data-view="list" title="List View" aria-label="List view"><i class="fa-solid fa-list"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid">
+          {% for product in products %}
+          <div class="product-card reveal" data-category="{{ product.category }}" data-brand="{{ product.brand }}">
+            {% if product.discount > 0 %}
+            <span class="product-badge">{{ product.discount }}% OFF</span>
+            {% endif %}
+
+            <div class="product-image">
+              <img src="{{ url_for('static', filename='images/' ~ product.image_placeholder) }}"
+                   alt="{{ product.name }}" loading="lazy"
+                   onerror="this.src='{{ url_for('static', filename='images/placeholder.svg') }}'">
+              <div class="product-quick-view">
+                <a href="{{ url_for('product_detail', product_id=product.id) }}">Quick View</a>
+              </div>
+            </div>
+
+            <div class="product-info">
+              <div class="product-brand">{{ product.brand }}</div>
+              <h3 class="product-name">
+                <a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.name }}</a>
+              </h3>
+
+              <div class="product-pricing">
+                <div class="product-price">₹{{ "{:,}".format(product.price) }}</div>
+                <div class="product-mrp">₹{{ "{:,}".format(product.mrp) }}</div>
+                <div class="product-discount">{{ product.discount }}% OFF</div>
+              </div>
+
+              <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                {{ product.description }}
+              </p>
+
+              <div class="product-actions">
+                <a href="{{ product.whatsapp_msg }}" target="_blank" rel="noopener noreferrer"
+                   class="btn-order-whatsapp" title="Order on WhatsApp">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>WhatsApp Buy</span>
+                </a>
+                <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn-view-product" title="Details">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

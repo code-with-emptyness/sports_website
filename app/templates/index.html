@@ -1,0 +1,367 @@
+{% extends "base.html" %}
+
+{% block title %}{{ store.name }} — Premier Sports, Nutrition &amp; Gym Equipment in Kanpur{% endblock %}
+
+{% block content %}
+<!-- ============================================================
+     1. HERO SECTION (Kombai Triptych & Floating Spec Chips)
+     ============================================================ -->
+<section class="hero">
+  <div class="hero-particles"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Left Column: High-Impact Typography & Action -->
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span>OFFICIAL 2026 ATHLETIC GEAR • KANPUR, UP</span>
+        </div>
+
+        <h1 class="hero-title">
+          Fuel The Drive. <br>
+          <span class="text-accent">Dominate The Field.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Kanpur's premier powerhouse for tournament-grade English willow cricket, Yonex badminton, 100% authentic wholesale nutrition, and heavy-duty <strong>AB Strong</strong> gym machinery.
+        </p>
+
+        <!-- Floating Spec Chips (Kombai style) -->
+        <div class="hero-spec-chips">
+          <span class="spec-chip"><i class="fa-solid fa-certificate text-accent"></i> 100% Genuine Brands</span>
+          <span class="spec-chip"><i class="fa-solid fa-bolt text-accent"></i> AB Strong Powered</span>
+          <span class="spec-chip"><i class="fa-solid fa-truck-fast text-cyan"></i> Fast Dispatch Kanpur</span>
+          <span class="spec-chip"><i class="fa-brands fa-whatsapp text-accent"></i> Direct Showroom Desk</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="{{ url_for('products_page') }}" class="btn btn-primary">
+            <span>Shop Equipment</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I would like to order sports equipment / get pricing.'|urlencode }}"
+             target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Order on WhatsApp</span>
+          </a>
+
+          <a href="#ecosystem" class="btn btn-outline">
+            <span>Explore 4 Pillars</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: Kombai Multi-Card Triptych Showcase -->
+      <div class="hero-visual-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+          <div>
+            <span style="font-size: 0.72rem; letter-spacing: 1.5px; color: var(--accent); font-weight: 700;">SHOWROOM PREVIEW</span>
+            <h3 style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--text-white); margin-top: 2px;">Kanpur Signature Drops</h3>
+          </div>
+          <span style="font-size: 0.75rem; background: rgba(255,255,255,0.06); padding: 3px 10px; border-radius: var(--radius-pill); border: 1px solid var(--border);">IN STOCK</span>
+        </div>
+
+        <div class="hero-triptych">
+          <div class="triptych-item">
+            <img src="{{ url_for('static', filename='images/cricket.svg') }}" alt="Cricket Willow">
+          </div>
+          <div class="triptych-item">
+            <img src="{{ url_for('static', filename='images/gym-equipment.svg') }}" alt="AB Strong Gym">
+          </div>
+          <div class="triptych-item">
+            <img src="{{ url_for('static', filename='images/badminton.svg') }}" alt="Yonex Badminton">
+          </div>
+        </div>
+
+        <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(37, 211, 102, 0.15); color: var(--whatsapp); display: flex; align-items: center; justify-content: center;">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-white);">Showroom WhatsApp Desk</div>
+              <div style="font-size: 0.72rem; color: var(--text-muted);">+91 {{ store.whatsapp_display }} • Fast response</div>
+            </div>
+          </div>
+          <a href="https://wa.me/{{ store.whatsapp }}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-size: 0.78rem; font-weight: 700;">Connect &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2. RUNNING TICKER-TAPE TECH MARQUEE
+     ============================================================ -->
+<div class="ticker-tape">
+  <div class="ticker-track">
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> TOURNAMENT CRICKET BATS</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> YONEX ASTROX BADMINTON</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> AB STRONG GYM MACHINERY</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> 100% AUTHENTIC SUPPLEMENTS</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> WHOLESALE &amp; RETAIL NUTRITION</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> SAME-DAY SHOWROOM PICKUP KANPUR</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> TOURNAMENT CRICKET BATS</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> YONEX ASTROX BADMINTON</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> AB STRONG GYM MACHINERY</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> 100% AUTHENTIC SUPPLEMENTS</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> WHOLESALE &amp; RETAIL NUTRITION</div>
+    <div class="ticker-item"><i class="fa-solid fa-bolt"></i> SAME-DAY SHOWROOM PICKUP KANPUR</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     3. KOMBAI BENTO GRID (4 PILLARS & STATS SHOWCASE)
+     ============================================================ -->
+<section class="section" id="ecosystem">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <span class="section-label">ECOSYSTEM MATRIX</span>
+        <h2 class="section-title">The Four Pillars of Faran</h2>
+        <p class="section-subtitle">
+          A unified powerhouse engineered for athletes, gyms, and sports academies across Kanpur and Uttar Pradesh.
+        </p>
+      </div>
+      <a href="{{ url_for('about') }}" style="font-size: 0.85rem; font-weight: 700; color: var(--accent);">
+        Read Complete Story &rarr;
+      </a>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Bento 1 (Large 2-column card): Faran Sports & AB Strong -->
+      <div class="bento-card span-2 reveal" style="background: radial-gradient(circle at 90% 10%, rgba(212, 255, 0, 0.08) 0%, var(--bg-card) 60%);">
+        <span class="bento-badge yellow"><i class="fa-solid fa-bolt"></i> PILLAR 01 &amp; 04 • SPORTS &amp; GYM MANUFACTURING</span>
+        <h3 class="bento-title">Faran Sports + AB Strong Heavy Equipment</h3>
+        <p class="bento-desc">
+          Authorized retail showroom in Kanpur supplying world-class brands (SG, SS, Yonex, Cosco, Nivia, Stag) alongside <strong>AB Strong</strong> — our proprietary commercial equipment line featuring cast-iron dumbbells, Olympic barbells, and power cages.
+        </p>
+        <div style="display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap;">
+          <a href="{{ url_for('products_page') }}" class="btn btn-outline" style="font-size: 0.82rem; padding: 10px 20px;">
+            <span>Browse Gear</span>
+          </a>
+          <a href="{{ url_for('products_page', brand='ab-strong') }}" class="btn btn-primary" style="font-size: 0.82rem; padding: 10px 20px;">
+            <span>AB Strong Line</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bento 2: Faran Supplement House (Retail & Wholesale) -->
+      <div class="bento-card reveal" style="background: radial-gradient(circle at 10% 90%, rgba(245, 158, 11, 0.08) 0%, var(--bg-card) 60%);">
+        <span class="bento-badge yellow" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.3); background: rgba(245, 158, 11, 0.1);">
+          <i class="fa-solid fa-capsules"></i> PILLAR 02 • RETAIL &amp; WHOLESALE
+        </span>
+        <h3 class="bento-title">Faran Supplement House</h3>
+        <p class="bento-desc">
+          100% verified genuine whey proteins, mass gainers, and BCAAs with importer authenticity verification. We offer direct wholesale supply for gyms and trainers across UP.
+        </p>
+        <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Supplement House! I would like wholesale/retail supplement rates.'|urlencode }}"
+           target="_blank" rel="noopener noreferrer" style="color: #f59e0b; font-weight: 700; font-size: 0.82rem; margin-top: 24px; display: inline-block;">
+          Wholesale Rate Desk &rarr;
+        </a>
+      </div>
+
+      <!-- Bento 3: Faran Gym House -->
+      <div class="bento-card reveal">
+        <span class="bento-badge cyan"><i class="fa-solid fa-person-running"></i> PILLAR 03 • COMMERCIAL FITNESS</span>
+        <h3 class="bento-title">Faran Gym House</h3>
+        <p class="bento-desc">
+          High-performance fitness training centre and commercial gym setup consultancy in Kanpur. Machine ergonomics, floor plan design, and complete setups.
+        </p>
+        <a href="{{ url_for('about') }}#faran-gym-house" style="color: var(--accent-cyan); font-weight: 700; font-size: 0.82rem; margin-top: 24px; display: inline-block;">
+          Consult on Gym Setup &rarr;
+        </a>
+      </div>
+
+      <!-- Bento 4 (Span 2): Trust Metrics & Direct WhatsApp Hotline -->
+      <div class="bento-card span-2 reveal" style="background: radial-gradient(circle at 50% 50%, rgba(37, 211, 102, 0.06) 0%, var(--bg-card) 60%);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+          <div>
+            <span class="bento-badge green"><i class="fa-brands fa-whatsapp"></i> INSTANT WHATSAPP DESK</span>
+            <h3 class="bento-title" style="margin-bottom: 6px;">Kanpur Showroom Direct Order Hotline</h3>
+            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; max-width: 600px;">
+              Text <strong>+91 {{ store.whatsapp_display }}</strong> for bat knock-in, racket stringing, wholesale supplements &amp; gym quotes.
+            </p>
+          </div>
+          <div style="margin-top: 8px;">
+            <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I would like to place an order / check product stock.'|urlencode }}"
+               target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size: 0.88rem; padding: 12px 24px;">
+              <i class="fa-brands fa-whatsapp"></i> Chat on 8840185575
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. CATEGORY CHIP STRIP & FEATURED PRODUCTS
+     ============================================================ -->
+<section class="section" style="background: var(--bg-surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <span class="section-label">CURATED COLLECTION</span>
+        <h2 class="section-title">Featured Athletic Equipment</h2>
+      </div>
+      <div>
+        <a href="{{ url_for('products_page') }}" class="btn btn-outline" style="font-size: 0.82rem; padding: 8px 16px;">
+          <span>Explore All 20+ Products</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Swipeable Category Chip Strip (Kombai pattern) -->
+    <div class="category-strip" style="margin-bottom: 24px;">
+      <a href="{{ url_for('products_page') }}" class="category-chip active">All Gear</a>
+      {% for cat in categories %}
+      <a href="{{ url_for('products_page', category=cat.slug) }}" class="category-chip">
+        <i class="{{ cat.icon }}"></i>
+        <span>{{ cat.name }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Product Grid (2-Col Mobile, 4-Col Desktop) -->
+    <div class="products-grid">
+      {% for product in featured_products %}
+      <div class="product-card reveal" data-category="{{ product.category }}" data-brand="{{ product.brand }}">
+        {% if product.discount > 0 %}
+        <span class="product-badge">{{ product.discount }}% OFF</span>
+        {% endif %}
+
+        <div class="product-image">
+          <img src="{{ url_for('static', filename='images/' ~ product.image_placeholder) }}"
+               alt="{{ product.name }}" loading="lazy"
+               onerror="this.src='{{ url_for('static', filename='images/placeholder.svg') }}'">
+          <div class="product-quick-view">
+            <a href="{{ url_for('product_detail', product_id=product.id) }}">Quick View</a>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-brand">{{ product.brand }}</div>
+          <h3 class="product-name">
+            <a href="{{ url_for('product_detail', product_id=product.id) }}">{{ product.name }}</a>
+          </h3>
+
+          <div class="product-pricing">
+            <div class="product-price">₹{{ "{:,}".format(product.price) }}</div>
+            <div class="product-mrp">₹{{ "{:,}".format(product.mrp) }}</div>
+            <div class="product-discount">{{ product.discount }}% off</div>
+          </div>
+
+          <div class="product-actions">
+            <a href="{{ product.whatsapp_msg }}" target="_blank" rel="noopener noreferrer"
+               class="btn-order-whatsapp" title="Buy via WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn-view-product" title="Product Specs">
+              <i class="fa-solid fa-eye"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. TESTIMONIALS CAROUSEL
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <span class="section-label">COMMUNITY VOICES</span>
+        <h2 class="section-title">Trusted by Kanpur’s Athletes</h2>
+        <p class="section-subtitle">Real experiences from local cricketers, badminton players, and gym owners.</p>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" aria-label="Previous review"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-dots"></div>
+        <button class="carousel-btn next" aria-label="Next review"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <div class="testimonials-carousel">
+      <div class="testimonials-track">
+        {% for t in testimonials %}
+        <div class="testimonial-card">
+          <div class="testimonial-inner">
+            <div class="testimonial-stars">
+              {% for i in range(t.rating) %}
+              <svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9" /></svg>
+              {% endfor %}
+            </div>
+            <p class="testimonial-text">“{{ t.text }}”</p>
+            <div style="display: flex; align-items: center; gap: 10px; border-top: 1px solid var(--border); padding-top: 14px;">
+              <div style="width: 36px; height: 36px; border-radius: var(--radius-pill); background: rgba(212, 255, 0, 0.12); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem;">
+                {{ t.name[0] }}
+              </div>
+              <div>
+                <div class="testimonial-author">{{ t.name }}</div>
+                <div class="testimonial-role">{{ t.sport }} • Kanpur</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. KANPUR SHOWROOM CONTACT & LOCATION CARD (HOME)
+     ============================================================ -->
+<section class="section" style="padding-top: 20px; padding-bottom: 70px;">
+  <div class="container">
+    <div class="showroom-contact-card">
+      <span class="bento-badge green" style="margin: 0 auto 18px;">
+        <i class="fa-solid fa-location-dot"></i> KANPUR SHOWROOM &amp; WHATSAPP DESK
+      </span>
+
+      <h2 style="font-family: var(--font-heading); font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; color: var(--text-white); margin-bottom: 16px; line-height: 1.2;">
+        Visit Our Showroom or Order Direct via WhatsApp
+      </h2>
+
+      <p style="color: var(--text-body); max-width: 620px; margin: 0 auto 28px; font-size: 0.96rem; line-height: 1.65;">
+        Experience tournament-grade bats in person, test AB Strong commercial machines, or get immediate delivery across Kanpur and UP.
+      </p>
+
+      <!-- Quick Location & Contact Badges with Generous Gaps -->
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 36px;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 10px 18px; border-radius: var(--radius-pill); font-size: 0.84rem; color: var(--text-white);">
+          <i class="fa-solid fa-map-pin text-accent"></i> Kanpur, Uttar Pradesh
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 10px 18px; border-radius: var(--radius-pill); font-size: 0.84rem; color: var(--text-white);">
+          <i class="fa-brands fa-whatsapp" style="color: var(--whatsapp);"></i> +91 {{ store.whatsapp_display }}
+        </div>
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 10px 18px; border-radius: var(--radius-pill); font-size: 0.84rem; color: var(--text-white);">
+          <i class="fa-solid fa-clock text-cyan"></i> 10:00 AM – 9:00 PM Daily
+        </div>
+      </div>
+
+      <!-- Action Buttons with Generous Gaps -->
+      <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-top: 12px;">
+        <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I would like to consult on sports gear / wholesale pricing.'|urlencode }}"
+           target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size: 0.92rem; padding: 12px 28px;">
+          <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i>
+          <span>Instant WhatsApp Chat</span>
+        </a>
+        <a href="{{ url_for('contact') }}" class="btn btn-outline" style="font-size: 0.92rem; padding: 12px 28px;">
+          <i class="fa-solid fa-compass"></i>
+          <span>Contact &amp; Location Details</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
