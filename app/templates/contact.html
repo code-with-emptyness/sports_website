@@ -6,7 +6,7 @@
 <header class="page-header">
   <div class="container">
     <span class="section-label">GET IN TOUCH</span>
-    <h1 class="section-title">Contact Faran Sports</h1>
+    <h1 class="section-title">Contact {{ store.name }}</h1>
     <p class="section-subtitle" style="margin: 0 auto;">
       Located in Kanpur, UP. Connect with us via WhatsApp for instant pricing, stock checks, and delivery details.
     </p>
@@ -45,7 +45,7 @@
           <div>
             <div class="info-card-title">Showroom Location</div>
             <div class="info-card-text">
-              Faran Sports Main Hub<br>
+              {{ store.name }} Main Hub<br>
               <strong>Kanpur, Uttar Pradesh</strong>, India<br>
               <span style="color: var(--text-muted); font-size: 0.82rem;">Visiting hours: 10:00 AM – 9:00 PM (Daily)</span>
             </div>
@@ -74,7 +74,7 @@
           <div>
             <div class="info-card-title">Four Verticals Under Faran</div>
             <div class="info-card-text" style="font-size: 0.84rem; line-height: 1.8;">
-              • <strong>Faran Sports:</strong> Retail sports gear<br>
+              • <strong>{{ store.name }}:</strong> Retail sports gear<br>
               • <strong>Faran Supplement House:</strong> Retail &amp; wholesale nutrition<br>
               • <strong>Faran Gym House:</strong> Gym setup &amp; training<br>
               • <strong>AB Strong:</strong> Commercial gym equipment
@@ -107,7 +107,7 @@
             <div class="form-group">
               <label for="contactPillar">Category of Interest *</label>
               <select id="contactPillar" class="form-input" style="appearance: auto;">
-                <option value="Faran Sports Equipment">Faran Sports — Cricket, Badminton, Football &amp; Gear</option>
+                <option value="{{ store.name }} Equipment">{{ store.name }} — Cricket, Badminton, Football &amp; Gear</option>
                 <option value="Faran Supplement House (Retail)">Faran Supplement House — Retail Purchase</option>
                 <option value="Faran Supplement House (Wholesale)">Faran Supplement House — Wholesale &amp; Bulk Nutrition</option>
                 <option value="Faran Gym House Setup">Faran Gym House — Complete Gym Setup / Consultancy</option>
@@ -143,7 +143,7 @@ function handleContactSubmit(e) {
   const pillar = document.getElementById('contactPillar').value;
   const msg = document.getElementById('contactMsg').value.trim();
 
-  let text = `Hi Faran Sports! 👋\n`;
+  let text = `Hi {{ store.name }}! 👋\n`;
   text += `Name: *${name}*\n`;
   text += `Phone: ${phone}\n`;
   text += `Vertical/Interest: *${pillar}*\n`;

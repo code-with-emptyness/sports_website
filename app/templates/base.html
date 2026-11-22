@@ -48,7 +48,7 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
 
-        <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I would like to enquire about sports equipment.'|urlencode }}"
+        <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi {{ store.name }}! I would like to enquire about sports equipment.'|urlencode }}"
            target="_blank" rel="noopener noreferrer" class="nav-cta" title="Chat on WhatsApp">
           <i class="fa-brands fa-whatsapp" style="font-size: 1rem;"></i>
           <span>Order on WhatsApp</span>
@@ -98,7 +98,7 @@
   <!-- 4. FLOATING WHATSAPP BUTTON -->
   <div class="whatsapp-float">
     <span class="whatsapp-tooltip">Chat with us: {{ store.whatsapp_display }}</span>
-    <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I need help choosing sports equipment.'|urlencode }}"
+    <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi {{ store.name }}! I need help choosing sports equipment.'|urlencode }}"
        target="_blank" rel="noopener noreferrer" class="whatsapp-float-btn" aria-label="Contact us on WhatsApp">
       <i class="fa-brands fa-whatsapp" style="font-size: 28px; color: white;"></i>
     </a>
@@ -160,7 +160,7 @@
           <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.5;">
             Order directly via WhatsApp. Instant stock confirmations, local pickup in Kanpur, and pan-India shipping.
           </p>
-          <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! Please share your latest sports catalog.'|urlencode }}"
+          <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi {{ store.name }}! Please share your latest sports catalog.'|urlencode }}"
              target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%; font-size: 0.82rem; padding: 8px 14px;">
             <i class="fa-brands fa-whatsapp"></i> Chat on 8840185575
           </a>

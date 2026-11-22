@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}About Faran Sports &amp; Our Ecosystem — Kanpur, UP{% endblock %}
+{% block title %}About {{ store.name }} &amp; Our Ecosystem — {{ store.city }}, {{ store.state }}{% endblock %}
 
 {% block content %}
 <header class="page-header">
   <div class="container">
     <span class="section-label">OUR LEGACY &amp; VISION</span>
-    <h1 class="section-title">The Story Behind Faran Sports</h1>
+    <h1 class="section-title">The Story Behind {{ store.name }}</h1>
     <p class="section-subtitle" style="margin: 0 auto;">
-      Rooted in Kanpur, Uttar Pradesh — powering athletes, gyms, and sports enthusiasts with top-tier equipment, genuine nutrition, and commercial fitness installations.
+      Rooted in {{ store.city }}, {{ store.state }} — powering athletes, gyms, and sports enthusiasts with top-tier equipment, genuine nutrition, and commercial fitness installations.
     </p>
   </div>
 </header>
@@ -18,19 +18,19 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-image reveal fade-left">
-        <img src="{{ url_for('static', filename='images/gym-equipment.svg') }}" alt="Faran Sports Showroom Kanpur">
+        <img src="{{ url_for('static', filename='images/gym-equipment.svg') }}" alt="{{ store.name }} Showroom Kanpur">
       </div>
 
       <div class="about-text reveal fade-right">
         <span class="section-label">WHO WE ARE</span>
         <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin-bottom: 20px;">
-          Empowering Sports and Fitness in Kanpur &amp; Beyond
+          Empowering Sports and Fitness in {{ store.city }} &amp; Beyond
         </h2>
         <p>
-          Founded with a relentless commitment to athletic excellence, <strong>Faran Sports</strong> has grown from a specialized sports shop into Kanpur's most comprehensive sports, nutrition, and gym setup ecosystem.
+          Founded with a relentless commitment to athletic excellence, <strong>{{ store.name }}</strong> has grown from a specialized sports shop into Kanpur's most comprehensive sports, nutrition, and gym setup ecosystem.
         </p>
         <p>
-          Whether you are a budding cricketer selecting your first English willow bat, an academy looking for bulk football and badminton supplies, a gym owner requiring heavy-duty strength equipment, or an athlete demanding certified supplements — Faran is your one-stop partner.
+          Whether you are a budding cricketer selecting your first English willow bat, an academy looking for bulk football and badminton supplies, a gym owner requiring heavy-duty strength equipment, or an athlete demanding certified supplements — {{ store.name }} is your one-stop partner.
         </p>
 
         <div class="about-stats">
@@ -65,12 +65,12 @@
 
     <div style="display: flex; flex-direction: column; gap: 40px;">
 
-      <!-- Pillar 1: Faran Sports -->
+      <!-- Pillar 1: {{ store.name }} -->
       <div class="testimonial-inner reveal" id="faran-sports" style="padding: 40px; border-left: 6px solid var(--accent);">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
           <div>
             <span style="font-size: 0.8rem; letter-spacing: 2px; color: var(--accent); font-weight: 700;">PILLAR 01</span>
-            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">Faran Sports — Retail Sports Outfitter</h3>
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">{{ store.name }} — Retail Sports Outfitter</h3>
             <p style="color: var(--text-secondary); max-width: 750px; line-height: 1.8;">
               Our core retail storefront in Kanpur stocking authorized equipment from global and domestic icons including SG, SS, Yonex, Cosco, Nivia, Stag, Adidas, Nike, and Puma. We provide customized bat knock-in, racket stringing, and personalized sizing consultation.
             </p>
@@ -84,7 +84,7 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
           <div>
             <span style="font-size: 0.8rem; letter-spacing: 2px; color: #fc4a1a; font-weight: 700;">PILLAR 02 • RETAIL &amp; WHOLESALE</span>
-            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">Faran Supplement House</h3>
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">{{ store.name }} Supplement House</h3>
             <p style="color: var(--text-secondary); max-width: 750px; line-height: 1.8;">
               Countering the counterfeit supplement market with 100% verified, importer-tagged genuine nutrition. We operate both <strong>Retail</strong> sales for individual athletes and <strong>Wholesale distribution</strong> for gyms, fitness trainers, and regional shops throughout Kanpur and Uttar Pradesh.
             </p>
@@ -101,9 +101,9 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
           <div>
             <span style="font-size: 0.8rem; letter-spacing: 2px; color: #00b09b; font-weight: 700;">PILLAR 03</span>
-            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">Faran Gym House</h3>
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">{{ store.name }} Gym House</h3>
             <p style="color: var(--text-secondary); max-width: 750px; line-height: 1.8;">
-              Our dedicated fitness training centre and commercial gym consultancy in Kanpur. We advise entrepreneurs and fitness lovers on facility design, floor layout, machine ergonomics, cardio suites, and commercial strength lines.
+              Our dedicated fitness training centre and commercial gym consultancy in {{ store.city }}. We advise entrepreneurs and fitness lovers on facility design, floor layout, machine ergonomics, cardio suites, and commercial strength lines.
             </p>
           </div>
           <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Gym House! I want to consult about gym setup / memberships.'|urlencode }}"
@@ -113,12 +113,12 @@
         </div>
       </div>
 
-      <!-- Pillar 4: AB Strong Powered by Faran Sports -->
+      <!-- Pillar 4: AB Strong Powered by {{ store.name }} -->
       <div class="testimonial-inner reveal" id="ab-strong" style="padding: 40px; border-left: 6px solid #ff4444;">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
           <div>
             <span style="font-size: 0.8rem; letter-spacing: 2px; color: #ff4444; font-weight: 700;">PILLAR 04 • GYM EQUIPMENT MANUFACTURING</span>
-            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">AB Strong — Powered By Faran Sports</h3>
+            <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 6px 0 14px;">AB Strong — Powered By {{ store.name }}</h3>
             <p style="color: var(--text-secondary); max-width: 750px; line-height: 1.8;">
               Engineered with heavy-gauge steel, precision knurling, and industrial powder coating. AB Strong manufactures adjustable dumbbells, Olympic barbells, flat/incline benches, power cages, and weight plates built to withstand intense daily punishment.
             </p>
@@ -142,9 +142,9 @@
     <p style="color: var(--text-secondary); max-width: 550px; margin: 0 auto 30px;">
       Chat directly with our founders and technical team on WhatsApp: <strong>8840185575</strong>.
     </p>
-    <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi Faran Sports! I would like to visit your Kanpur store or speak to an advisor.'|urlencode }}"
+    <a href="https://wa.me/{{ store.whatsapp }}?text={{ 'Hi {{ store.name }}! I would like to visit your Kanpur store or speak to an advisor.'|urlencode }}"
        target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size: 1rem; padding: 16px 36px;">
-      <i class="fa-brands fa-whatsapp"></i> Chat with Faran Sports on WhatsApp
+      <i class="fa-brands fa-whatsapp"></i> Chat with {{ store.name }} on WhatsApp
     </a>
   </div>
 </section>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ product.name }} — Faran Sports Kanpur{% endblock %}
+{% block title %}{{ product.name }} — {{ store.name }} Kanpur{% endblock %}
 {% block meta_description %}{{ product.description }}{% endblock %}
 
 {% block content %}
@@ -75,7 +75,7 @@
             <span>Instant Order on WhatsApp</span>
           </a>
 
-          <a href="https://wa.me/{{ store.whatsapp }}?text={{ ('Hi Faran Sports! I need consultation / video call demo for: ' ~ product.name)|urlencode }}"
+          <a href="https://wa.me/{{ store.whatsapp }}?text={{ ('Hi {{ store.name }}! I need consultation / video call demo for: ' ~ product.name)|urlencode }}"
              target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="justify-content: center;">
             <i class="fa-solid fa-video"></i>
             <span>Request Live Video Demo / Store Check</span>
@@ -121,7 +121,7 @@
               </tr>
               <tr>
                 <td>Store Hub</td>
-                <td>Faran Sports Main Showroom, Kanpur, UP</td>
+                <td>{{ store.name }} Main Showroom, Kanpur, UP</td>
               </tr>
             </tbody>
           </table>
