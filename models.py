@@ -1,21 +1,21 @@
 """
-Data models for Faran Sports website.
+Data models for Yoogi Sports website.
 All data stored as Python dicts/lists (no database yet).
 """
 
 # ── Store Information ─────────────────────────────────────────────────────────
 STORE_INFO = {
-    "name": "Faran Sports",
-    "tagline": "Your Ultimate Sports Destination in Kanpur",
-    "city": "Kanpur",
-    "state": "Uttar Pradesh",
-    "whatsapp": "918840185575",
-    "whatsapp_display": "8840185575",
-    "whatsapp_link": "https://wa.me/918840185575",
-    "email": "faransports@gmail.com",
-    "address": "Faran Sports, Kanpur, Uttar Pradesh, India",
+    "name": "Yoogi Sports",
+    "tagline": "Your Ultimate Sports Destination in Mumbai",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "whatsapp": "+91XXXXXXXXXX",
+    "whatsapp_display": "6306182578",
+    "whatsapp_link": "https://wa.me/+916306182578",
+    "email": "sports@gmail.com",
+    "address": "Yoogi Sports, Mumbai, Maharashtra, India",
     "description": (
-        "Faran Sports is Kanpur's premier sports equipment destination, "
+        "Yoogi Sports is Mumbai's premier sports equipment destination, "
         "offering top-quality gear across Cricket, Badminton, Football, "
         "Gym Equipment, Fitness Supplements, Running, and Table Tennis. "
         "We are committed to fueling every athlete's journey."
@@ -25,8 +25,8 @@ STORE_INFO = {
 # ── Sub-Brands / Ecosystem ───────────────────────────────────────────────────
 SUB_BRANDS = [
     {
-        "name": "Faran Sports",
-        "slug": "faran-sports",
+        "name": "Yoogi Sports",
+        "slug": "Yoogi-sports",
         "icon": "fa-solid fa-baseball-bat-ball",
         "description": (
             "The flagship store for all sports equipment — cricket bats, "
@@ -34,8 +34,8 @@ SUB_BRANDS = [
         ),
     },
     {
-        "name": "Faran Supplement House",
-        "slug": "faran-supplement-house",
+        "name": "Yoogi Supplement House",
+        "slug": "Yoogi-supplement-house",
         "icon": "fa-solid fa-dumbbell",
         "description": (
             "Retail & wholesale supplier of genuine fitness supplements — "
@@ -44,8 +44,8 @@ SUB_BRANDS = [
         ),
     },
     {
-        "name": "Faran Gym House",
-        "slug": "faran-gym-house",
+        "name": "Yoogi Gym House",
+        "slug": "Yoogi-gym-house",
         "icon": "fa-solid fa-person-running",
         "description": (
             "Complete gym setup solutions — cardio machines, weight plates, "
@@ -53,7 +53,7 @@ SUB_BRANDS = [
         ),
     },
     {
-        "name": "AB Strong Powered By Faran Sports",
+        "name": "AB Strong Powered By Yoogi Sports",
         "slug": "ab-strong",
         "icon": "fa-solid fa-bolt",
         "description": (
@@ -114,7 +114,7 @@ def _wa(product_name, price):
     """Build a WhatsApp order link with pre-filled message."""
     import urllib.parse
     msg = (
-        f"Hi Faran Sports! 👋\n"
+        f"Hi Yoogi Sports! 👋\n"
         f"I'm interested in: *{product_name}*\n"
         f"Listed Price: ₹{price:,}\n"
         f"Please share availability and delivery details. Thank you!"
@@ -470,7 +470,7 @@ TESTIMONIALS = [
         "avatar_placeholder": "avatar1.jpg",
         "rating": 5,
         "text": (
-            "Bought an SG bat from Faran Sports — superb quality and the "
+            "Bought an SG bat from Yoogi Sports — superb quality and the "
             "best price in Kanpur. Their WhatsApp ordering is so convenient!"
         ),
     },
@@ -482,7 +482,7 @@ TESTIMONIALS = [
         "rating": 5,
         "text": (
             "Yonex rackets at genuine prices with proper warranty. "
-            "Faran Sports is my go-to for all badminton gear."
+            "Yoogi Sports is my go-to for all badminton gear."
         ),
     },
     {
@@ -493,7 +493,7 @@ TESTIMONIALS = [
         "rating": 4,
         "text": (
             "Set up my entire home gym with AB Strong equipment from "
-            "Faran Gym House. Great build quality and after-sales support."
+            "Yoogi Gym House. Great build quality and after-sales support."
         ),
     },
     {
@@ -504,7 +504,7 @@ TESTIMONIALS = [
         "rating": 5,
         "text": (
             "Finally a store in Kanpur that sells 100 % authentic supplements. "
-            "Faran Supplement House is a blessing for fitness enthusiasts."
+            "Yoogi Supplement House is a blessing for fitness enthusiasts."
         ),
     },
     {
