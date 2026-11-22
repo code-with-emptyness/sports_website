@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{{ store.name }} — 's Premier Sports &amp; Fitness Destination{% endblock %}</title>
+  <title>{% block title %}{{ store.name }} — {{ store.city }}'s Premier Sports &amp; Fitness Destination{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}{{ store.description }}{% endblock %}">
 
   <!-- Google Fonts: Outfit & Inter -->
@@ -24,14 +24,14 @@
   <div class="preloader">
     <div class="preloader-logo">{{ store.name }} <span class="highlight text-accent">SPORTS</span></div>
     <div class="preloader-bar"></div>
-    <div style="font-size: 0.78rem; color: var(--text-muted); letter-spacing: 1.5px; font-weight: 600;">KANPUR, UP</div>
+    <div style="font-size: 0.78rem; color: var(--text-muted); letter-spacing: 1.5px; font-weight: 600;">{{ store.city }}, {{ store.state }}</div>
   </div>
 
   <!-- 2. NAVIGATION -->
   <nav class="navbar">
     <div class="container">
       <a href="{{ url_for('home') }}" class="nav-logo">
-        <span class="highlight">FARAN</span> SPORTS
+        <span class="highlight">{{ store.name }}</span>
       </a>
 
       <div class="nav-links">
@@ -69,7 +69,7 @@
     <a href="{{ url_for('products_page') }}">Shop All Sports Gear</a>
     <a href="{{ url_for('home') }}#categories">Browse Categories</a>
     <a href="{{ url_for('home') }}#ecosystem">Our 4-Pillar Ecosystem</a>
-    <a href="{{ url_for('about') }}">About Faran Group</a>
+    <a href="{{ url_for('about') }}">About {{ store.name }} Group</a>
     <a href="{{ url_for('contact') }}">Contact &amp; Location</a>
     <div style="margin-top: 16px;">
       <a href="https://wa.me/{{ store.whatsapp }}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
@@ -116,13 +116,13 @@
         <!-- Brand column -->
         <div>
           <div class="footer-brand-title">
-            <span class="highlight text-accent">FARAN</span> SPORTS
+            <span class="highlight text-accent">{{ store.name }}</span> SPORTS
           </div>
           <p class="footer-brand-desc">
-            Kanpur's trusted sports hub for authentic equipment, genuine supplements, and gym machinery with direct WhatsApp checkout.
+            {{ store.city }}'s trusted sports hub for authentic equipment, genuine supplements, and gym machinery with direct WhatsApp checkout.
           </p>
           <div style="margin-bottom: 16px; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
-            <div><i class="fa-solid fa-location-dot text-accent" style="width: 18px;"></i> Kanpur, Uttar Pradesh, India</div>
+            <div><i class="fa-solid fa-location-dot text-accent" style="width: 18px;"></i> {{ store.city }}, {{ store.state }}, India</div>
             <div><i class="fa-brands fa-whatsapp text-accent" style="width: 18px;"></i> +91 {{ store.whatsapp_display }}</div>
             <div><i class="fa-solid fa-envelope text-accent" style="width: 18px;"></i> {{ store.email }}</div>
           </div>
@@ -147,9 +147,9 @@
         <div>
           <h4 class="footer-heading">Our Ecosystem</h4>
           <ul class="footer-links">
-            <li><a href="{{ url_for('about') }}#faran-sports">Faran Sports (Retail)</a></li>
-            <li><a href="{{ url_for('about') }}#faran-supplement-house">Faran Supplement House (Wholesale &amp; Retail)</a></li>
-            <li><a href="{{ url_for('about') }}#faran-gym-house">Faran Gym House</a></li>
+            <li><a href="{{ url_for('about') }}#faran-sports">{{ store.name }} (Retail)</a></li>
+            <li><a href="{{ url_for('about') }}#faran-supplement-house">{{ store.name }} & Supplement House (Wholesale &amp; Retail)</a></li>
+            <li><a href="{{ url_for('about') }}#faran-gym-house">{{ store.name }} Gym House</a></li>
             <li><a href="{{ url_for('products_page', brand='ab-strong') }}">AB Strong Equipment</a></li>
           </ul>
         </div>
@@ -168,8 +168,8 @@
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Faran Sports, Kanpur, UP. All Rights Reserved.</div>
-        <div>Engineered for Athletes • Powered by Faran Sports &amp; AB Strong</div>
+        <div>&copy; 2026 {{ store.name }}, {{ store.state }}, UP. All Rights Reserved.</div>
+        <div>Engineered for Athletes • Powered by {{ store.name }} &amp; AB Strong</div>
       </div>
     </div>
   </footer>
