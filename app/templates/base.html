@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{{ store.name }} — Kanpur's Premier Sports &amp; Fitness Destination{% endblock %}</title>
+  <title>{% block title %}{{ store.name }} — 's Premier Sports &amp; Fitness Destination{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}{{ store.description }}{% endblock %}">
 
   <!-- Google Fonts: Outfit & Inter -->
@@ -22,7 +22,7 @@
 
   <!-- 1. PRELOADER -->
   <div class="preloader">
-    <div class="preloader-logo">FARAN <span class="highlight text-accent">SPORTS</span></div>
+    <div class="preloader-logo">{{ store.name }} <span class="highlight text-accent">SPORTS</span></div>
     <div class="preloader-bar"></div>
     <div style="font-size: 0.78rem; color: var(--text-muted); letter-spacing: 1.5px; font-weight: 600;">KANPUR, UP</div>
   </div>
